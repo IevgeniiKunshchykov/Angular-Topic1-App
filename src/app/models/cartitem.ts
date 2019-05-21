@@ -1,6 +1,6 @@
 import { IProduct } from '../interfaces/iproduct';
 
 export class CartItem {
-    public product: IProduct
-    public count: number
-  }
+    public product: IProduct;
+    public count: number;
+}

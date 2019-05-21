@@ -18,7 +18,7 @@ export class ProductListComponent implements OnInit {
     this.products = this.productsService.GetProducts();
   }
 
-  onBuy(product: IProduct){
+  onBuy(product: IProduct) {
     this.cartService.AddProductToCart(product);
-  }  
+  }
 }

@@ -11,16 +11,15 @@ export class ProductsService {
 
   constructor() { }
 
-  GetProducts(): Array<IProduct>
-  {
-    var product1 = new Product();
+  GetProducts(): Array<IProduct> {
+    const product1 = new Product();
     product1.name = 'Bread';
     product1.isAvailable = true;
     product1.price = 2;
     product1.producer = 3;
     product1.ingredients = ['Egg', 'Dough'];
 
-    var product2 = new Product();
+    const product2 = new Product();
     product2.name = 'Cola';
     product2.isAvailable = true;
     product2.price = 4;
@@ -33,7 +32,7 @@ export class ProductsService {
     return this.products;
   }
 
-  CreateProduct(product: IProduct):void{
+  CreateProduct(product: IProduct): void {
     this.products.push(product);
   }
 }

@@ -19,12 +19,12 @@ export class ProductComponent implements OnInit {
     this.product = new Product();
   }
 
-  public onAddIngredient(): void{
+  public onAddIngredient(): void {
     this.product .ingredients.push(this.newIngredient);
     this.newIngredient = null;
   }
 
-  public onCreateProduct(): void{
+  public onCreateProduct(): void {
     this.productsService.CreateProduct(this.product);
     this.product = new Product();
     this.newIngredient = null;

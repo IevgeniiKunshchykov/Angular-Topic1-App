@@ -7,11 +7,10 @@ import { CartItem } from '../models/cartitem';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
-export class CartComponent implements OnInit {  
+export class CartComponent implements OnInit {
 
   constructor(private cartService: CartService) { }
 
   ngOnInit() {
-    
   }
 }
