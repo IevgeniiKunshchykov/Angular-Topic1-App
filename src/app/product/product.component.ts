@@ -11,7 +11,6 @@ import { ProductsService } from '../services/products.service';
 export class ProductComponent implements OnInit {
 
   public product: Product;
-  public newIngredient: string;
 
   constructor(private productsService: ProductsService) { }
 
@@ -19,14 +18,12 @@ export class ProductComponent implements OnInit {
     this.product = new Product();
   }
 
-  public onAddIngredient(): void {
-    this.product .ingredients.push(this.newIngredient);
-    this.newIngredient = null;
+  public onAddIngredient(newIngredient: string): void {
+    this.product.ingredients.push(newIngredient);
   }
 
   public onCreateProduct(): void {
     this.productsService.CreateProduct(this.product);
     this.product = new Product();
-    this.newIngredient = null;
   }
 }
