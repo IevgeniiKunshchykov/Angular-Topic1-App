@@ -3,7 +3,7 @@ import { Subscription } from 'rxjs';
 
 import { ProductsService } from '../services/products.service';
 import { IProduct } from '../interfaces/iproduct';
-import { CartService } from '../services/cart.service';
+import { CartService } from '../../cart/services/cart.service';
 
 @Component({
   selector: 'app-product-list',

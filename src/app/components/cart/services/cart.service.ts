@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 
-import { IProduct } from '../interfaces/iproduct';
-import { CartItem } from '../models/cartitem';
+import { IProduct } from '../../product-list/interfaces/iproduct';
+import { CartItem } from '../model/cartitem';
 
 @Injectable({
   providedIn: 'root'

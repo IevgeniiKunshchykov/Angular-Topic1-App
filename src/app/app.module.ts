@@ -4,11 +4,11 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ProductComponent } from './product/product.component';
-import { ProductListComponent } from './product-list/product-list.component';
-import { ProductsService } from './services/products.service';
-import { CartComponent } from './cart/cart.component';
-import { CartService } from './services/cart.service';
+import { ProductComponent } from './components/product/product.component';
+import { ProductListComponent } from './components/product-list/components/product-list.component';
+import { ProductsService } from './components/product-list/services/products.service';
+import { CartComponent } from './components/cart/components/cart.component';
+import { CartService } from './components/cart/services/cart.service';
 
 @NgModule({
   declarations: [

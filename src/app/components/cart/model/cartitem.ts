@@ -1,4 +1,4 @@
-import { IProduct } from '../interfaces/iproduct';
+import { IProduct } from '../../product-list/interfaces/iproduct';
 
 export class CartItem {
     public product: IProduct;
