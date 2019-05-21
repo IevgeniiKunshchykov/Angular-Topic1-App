@@ -1,19 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
-enum Country {
-  USA = 1,
-  UK,
-  Ukraine
-}
-
-export class Product{
-  public name: string
-  public description: string
-  public price: number
-  public isAvailable: boolean
-  public producer: Country
-  public ingredients: Array<string> = [];
-}
+import { Product } from '../models/product';
+import { IProduct } from '../interfaces/iproduct';
+import { ProductsService } from '../services/products.service';
 
 @Component({
   selector: 'app-product',
@@ -24,9 +12,8 @@ export class ProductComponent implements OnInit {
 
   public product: Product;
   public newIngredient: string;
-  public basket: Array<Product> = [];
 
-  constructor() { }
+  constructor(private productsService: ProductsService) { }
 
   ngOnInit() {
     this.product = new Product();
@@ -37,8 +24,8 @@ export class ProductComponent implements OnInit {
     this.newIngredient = null;
   }
 
-  public onBuy(): void{
-    this.basket.push(this.product);
+  public onCreateProduct(): void{
+    this.productsService.CreateProduct(this.product);
     this.product = new Product();
     this.newIngredient = null;
   }

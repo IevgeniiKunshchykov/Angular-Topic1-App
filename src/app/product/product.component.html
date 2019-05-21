@@ -1,4 +1,5 @@
-<div>
+<div style="border-style: dotted">
+  <h4>Market:</h4>
   <table>
         <tr>
           <td>Name:</td>
@@ -27,9 +28,9 @@
         <tr>
             <td>Producer:</td>
             <select [value]="product.producer">
-                <option value="1">USA</option>
-                <option value="2">UK</option>
-                <option value="3">Ukraine</option>
+                <option value = 1>USA</option>
+                <option value = 2>UK</option>
+                <option value = 3>Ukraine</option>
             </select>
         </tr>
         <tr>
@@ -48,34 +49,6 @@
       {{ingredient}}
     </li>
   </ul>
-  <button (click)="onBuy()">Buy</button>
-  <h4>Products in basket:</h4>
-  <table>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Price</th>
-    <th>Is Available</th>
-    <th>Producer</th>
-    <th>Ingredients</th>
-
-    <tr *ngFor='let product of basket'>
-      <td>{{product.name}}</td>
-      <td>{{product.description}}</td>
-      <td>{{product.price}}</td>
-      <td>{{product.isAvailable}}</td>
-      <td ngSwitch="product.producer">          
-              <span *ngSwitchCase ="1">USA</span>
-              <span *ngSwitchCase="2">UK</span>
-              <span *ngSwitchCase="3">Ukraine</span>
-      </td>
-      <td>
-        <ul>
-          <li *ngFor='let ingredient of product.ingredients'>
-            {{ingredient}}
-          </li>
-        </ul>
-      </td>
-    <tr>     
-  </table>
+  <button (click)="onCreateProduct()">Create Product</button>  
 
 </div>
