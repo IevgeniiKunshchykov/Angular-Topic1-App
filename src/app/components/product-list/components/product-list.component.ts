@@ -19,11 +19,13 @@ export class ProductListComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.GetProducts();
+    // попробуйте пока реализовать без подписок...
     this.sub = this.productsService.productsChanged$.subscribe(
       () => this.GetProducts());
   }
 
   ngOnDestroy(): void {
+    // ...и отписок
     this.sub.unsubscribe();
   }
 
@@ -31,6 +33,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
     this.cartService.AddProductToCart(product);
   }
 
+  // метод в нижнем регистре и кемел кейс
   private GetProducts() {
     this.products = null;
     this.products = this.productsService.GetProducts();

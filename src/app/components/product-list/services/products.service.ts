@@ -8,6 +8,7 @@ import { Product } from '../model/product';
   providedIn: 'root'
 })
 export class ProductsService {
+  // думаю, что пока можно обойтись без Subject, чтобы не усложнять код
   private productsChanged = new Subject();
   private products: Array<IProduct> = [];
 
@@ -28,10 +29,11 @@ export class ProductsService {
     product2.producer = 1;
     product2.ingredients = ['Water', 'Smth Black'];
 
-    this.products.push(product1);
-    this.products.push(product2);
-   }
+    this.products.push(product1, product2);
+    // this.products.push(product2);
+  }
 
+  // методы начинаются с нижнего регистра + кемел кейс
   GetProducts(): Array<IProduct> {
     return this.products;
   }

@@ -17,12 +17,13 @@ import { CartService } from './components/cart/services/cart.service';
     ProductListComponent,
     CartComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  providers: [
+    ProductsService, // <-- нет необходимости тут указывать сервис, он уже зарегистрирован через декоратор @Injectable
+    CartService  // аналогично тут
   ],
-  providers: [ProductsService, CartService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
+
+// Обратите внимание на пункт 12.7
