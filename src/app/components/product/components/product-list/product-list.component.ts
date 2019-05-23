@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
-import { IProduct } from '../interfaces/iproduct';
+import { IProduct } from '../../interfaces/iproduct';
 
 @Component({
   selector: 'app-product-list',
@@ -8,12 +8,11 @@ import { IProduct } from '../interfaces/iproduct';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent {
-  
   @Input()
   products: Array<IProduct> = [];
 
   @Output()
-  private buy : EventEmitter<IProduct> = new EventEmitter<IProduct>();
+  private buy: EventEmitter<IProduct> = new EventEmitter<IProduct>();
 
   constructor() { }
 

@@ -1,6 +1,6 @@
 import { Component, Output, OnInit, EventEmitter } from '@angular/core';
-import { Product } from '../product-list/model/product';
-import { IProduct } from '../product-list/interfaces/iproduct';
+import { Product } from '../../model/product';
+import { IProduct } from '../../interfaces/iproduct';
 
 @Component({
   selector: 'app-product',
@@ -12,7 +12,7 @@ export class ProductComponent implements OnInit {
   product: IProduct;
 
   @Output()
-  private createProduct : EventEmitter<IProduct> = new EventEmitter<IProduct>();
+  private createProduct: EventEmitter<IProduct> = new EventEmitter<IProduct>();
 
   constructor() { }
 

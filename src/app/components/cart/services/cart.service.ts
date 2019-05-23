@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
-import { IProduct } from '../../product-list/interfaces/iproduct';
 import { CartItem } from '../model/cartitem';
+import { IProduct } from '../../product/interfaces/iproduct';
 
 @Injectable({
   providedIn: 'root'
