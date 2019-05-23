@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
 
 import { IProduct } from '../interfaces/iproduct';
 import { Product } from '../model/product';
@@ -8,11 +7,8 @@ import { Product } from '../model/product';
   providedIn: 'root'
 })
 export class ProductsService {
-  // думаю, что пока можно обойтись без Subject, чтобы не усложнять код
-  private productsChanged = new Subject();
-  private products: Array<IProduct> = [];
 
-  productsChanged$ = this.productsChanged.asObservable();
+  private products: Array<IProduct> = [];
 
   constructor() {
     const product1 = new Product();
@@ -38,6 +34,5 @@ export class ProductsService {
 
   createProduct(product: IProduct): void {
     this.products.push(product);
-    this.productsChanged.next();
   }
 }

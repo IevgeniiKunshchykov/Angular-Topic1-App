@@ -1,7 +1,5 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component, Output, Input, EventEmitter } from '@angular/core';
 
-import { CartService } from '../services/cart.service';
 import { CartItem } from '../model/cartitem';
 
 @Component({
@@ -9,29 +7,15 @@ import { CartItem } from '../model/cartitem';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
-export class CartComponent implements OnInit, OnDestroy {
-  cartItems: Array<CartItem>;
+export class CartComponent{
 
-  private sub: Subscription;
+  @Input()
+  cartItems: Array<CartItem> = [];
 
-  constructor(private cartService: CartService) { }
-
-  ngOnInit() {
-    this.GetCartItems();
-    this.sub = this.cartService.cartChanged$.subscribe(
-      () => this.GetCartItems());
-  }
-
-  ngOnDestroy(): void {
-    this.sub.unsubscribe();
-  }
+  @Output()
+  deleteFromCart : EventEmitter<CartItem> = new EventEmitter<CartItem>();
 
   onRemoveFromCart(cartItem: CartItem) {
-    this.cartService.removeProductFromCart(cartItem);
-  }
-
-  private GetCartItems() {
-    this.cartItems = null;
-    this.cartItems = this.cartService.getCartItem();
+    this.deleteFromCart.emit(cartItem);
   }
 }

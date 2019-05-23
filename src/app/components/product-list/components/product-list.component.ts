@@ -1,38 +1,23 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
-import { ProductsService } from '../services/products.service';
 import { IProduct } from '../interfaces/iproduct';
-import { CartService } from '../../cart/services/cart.service';
 
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css']
 })
-export class ProductListComponent implements OnInit, OnDestroy {
-  products: Array<IProduct>;
+export class ProductListComponent {
+  
+  @Input()
+  products: Array<IProduct> = [];
 
-  private sub: Subscription;
+  @Output()
+  private buy : EventEmitter<IProduct> = new EventEmitter<IProduct>();
 
-  constructor(private productsService: ProductsService, private cartService: CartService) { }
-
-  ngOnInit() {
-    this.getProducts();
-    this.sub = this.productsService.productsChanged$.subscribe(
-      () => this.getProducts());
-  }
-
-  ngOnDestroy(): void {
-    this.sub.unsubscribe();
-  }
+  constructor() { }
 
   onBuy(product: IProduct) {
-    this.cartService.addProductToCart(product);
-  }
-
-  private getProducts() {
-    this.products = null;
-    this.products = this.productsService.getProducts();
+    this.buy.emit(product);
   }
 }

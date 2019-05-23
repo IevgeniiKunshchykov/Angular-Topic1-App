@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Output, OnInit, EventEmitter } from '@angular/core';
 import { Product } from '../product-list/model/product';
 import { IProduct } from '../product-list/interfaces/iproduct';
-import { ProductsService } from '../product-list/services/products.service';
 
 @Component({
   selector: 'app-product',
@@ -10,20 +9,24 @@ import { ProductsService } from '../product-list/services/products.service';
 })
 export class ProductComponent implements OnInit {
 
-  public product: Product;
+  product: IProduct;
 
-  constructor(private productsService: ProductsService) { }
+  @Output()
+  private createProduct : EventEmitter<IProduct> = new EventEmitter<IProduct>();
+
+  constructor() { }
 
   ngOnInit() {
     this.product = new Product();
   }
 
-  public onAddIngredient(newIngredient: string): void {
+  onAddIngredient(newIngredient: string): void {
     this.product.ingredients.push(newIngredient);
   }
 
-  public onCreateProduct(): void {
-    this.productsService.createProduct(this.product);
+  onCreateProduct(): void {
+    console.log(this.product);
+    this.createProduct.emit(this.product);
     this.product = new Product();
   }
 }
