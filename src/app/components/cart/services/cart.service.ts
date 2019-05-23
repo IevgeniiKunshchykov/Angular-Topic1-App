@@ -15,12 +15,11 @@ export class CartService {
 
   constructor() { }
 
-  // методы в нижний регистр и кемел кейс
-  GetCartItem(): Array<CartItem> {
+  getCartItem(): Array<CartItem> {
     return this.cartItems;
   }
 
-  AddProductToCart(product: IProduct): void {
+  addProductToCart(product: IProduct): void {
     const cartItem = new CartItem();
     cartItem.count = 1;
     cartItem.product = product;
@@ -29,7 +28,7 @@ export class CartService {
     this.cartChanged.next();
   }
 
-  RemoveProductFromCart(cartItem: CartItem): void {
+  removeProductFromCart(cartItem: CartItem): void {
     const index = this.cartItems.indexOf(cartItem, 0);
     this.cartItems.splice(index, 1);
 

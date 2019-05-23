@@ -18,24 +18,21 @@ export class ProductListComponent implements OnInit, OnDestroy {
   constructor(private productsService: ProductsService, private cartService: CartService) { }
 
   ngOnInit() {
-    this.GetProducts();
-    // попробуйте пока реализовать без подписок...
+    this.getProducts();
     this.sub = this.productsService.productsChanged$.subscribe(
-      () => this.GetProducts());
+      () => this.getProducts());
   }
 
   ngOnDestroy(): void {
-    // ...и отписок
     this.sub.unsubscribe();
   }
 
   onBuy(product: IProduct) {
-    this.cartService.AddProductToCart(product);
+    this.cartService.addProductToCart(product);
   }
 
-  // метод в нижнем регистре и кемел кейс
-  private GetProducts() {
+  private getProducts() {
     this.products = null;
-    this.products = this.productsService.GetProducts();
+    this.products = this.productsService.getProducts();
   }
 }

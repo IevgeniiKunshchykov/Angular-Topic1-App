@@ -23,7 +23,7 @@ export class ProductComponent implements OnInit {
   }
 
   public onCreateProduct(): void {
-    this.productsService.CreateProduct(this.product);
+    this.productsService.createProduct(this.product);
     this.product = new Product();
   }
 }

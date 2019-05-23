@@ -30,15 +30,13 @@ export class ProductsService {
     product2.ingredients = ['Water', 'Smth Black'];
 
     this.products.push(product1, product2);
-    // this.products.push(product2);
   }
 
-  // методы начинаются с нижнего регистра + кемел кейс
-  GetProducts(): Array<IProduct> {
+  getProducts(): Array<IProduct> {
     return this.products;
   }
 
-  CreateProduct(product: IProduct): void {
+  createProduct(product: IProduct): void {
     this.products.push(product);
     this.productsChanged.next();
   }

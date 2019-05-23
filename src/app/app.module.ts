@@ -6,9 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductComponent } from './components/product/product.component';
 import { ProductListComponent } from './components/product-list/components/product-list.component';
-import { ProductsService } from './components/product-list/services/products.service';
 import { CartComponent } from './components/cart/components/cart.component';
-import { CartService } from './components/cart/services/cart.service';
 
 @NgModule({
   declarations: [
@@ -18,12 +16,6 @@ import { CartService } from './components/cart/services/cart.service';
     CartComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
-  providers: [
-    ProductsService, // <-- нет необходимости тут указывать сервис, он уже зарегистрирован через декоратор @Injectable
-    CartService  // аналогично тут
-  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
-
-// Обратите внимание на пункт 12.7

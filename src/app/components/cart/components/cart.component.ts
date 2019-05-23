@@ -27,11 +27,11 @@ export class CartComponent implements OnInit, OnDestroy {
   }
 
   onRemoveFromCart(cartItem: CartItem) {
-    this.cartService.RemoveProductFromCart(cartItem);
+    this.cartService.removeProductFromCart(cartItem);
   }
 
   private GetCartItems() {
     this.cartItems = null;
-    this.cartItems = this.cartService.GetCartItem();
+    this.cartItems = this.cartService.getCartItem();
   }
 }
