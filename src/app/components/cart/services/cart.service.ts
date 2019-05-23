@@ -15,6 +15,7 @@ export class CartService {
 
   constructor() { }
 
+  // методы в нижний регистр и кемел кейс
   GetCartItem(): Array<CartItem> {
     return this.cartItems;
   }
